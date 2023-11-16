@@ -13,7 +13,7 @@ function SideBar(){
         productos: [],
     })
     async function fetchApi(){
-        let respuesta = await fetch("https://localhost:3001/src/controllers/apis/productsApis.js")
+        let respuesta = await fetch("/apis/productsApis.js")
         let data = await respuesta.json()
         setproductosInfo(data)
     }

@@ -23,6 +23,7 @@ let productosOferta = {
 }
 let cartProps = [productosInDB, totalProductos, productosOferta];
 function ContentRowTop({productosInfo}){
+	console.log(productosInfo);
 	if (productosInfo.count > 0 ){
     return(
         <React.Fragment>
@@ -54,7 +55,7 @@ function ContentRowTop({productosInfo}){
 									<div className="text-center">
 										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={imagenFondo} alt=" Star Wars - Mandalorian "/>
 									</div>
-									<p>{productosInfo.productos[productosInfo.productos.length -1].detail}</p>
+									<p>{productosInfo.products[productosInfo.products.length -1].detail}</p>
 									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle de producto</a>
 								</div>
 							</div>

@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import Genre from './Genre' 
-function GenresInDb ({generos}){
-console.log(generos)
-if (typeof generos == "object"){
+function GenresInDb ({categorias}){
+console.log(categorias)
+if (typeof categorias == "object"){
     return(
         <div className="col-lg-6 mb-4">						
 							<div className="card shadow mb-4">
@@ -11,8 +11,8 @@ if (typeof generos == "object"){
 								</div>
 								<div className="card-body">
 									<div className="row">
-										{Object.keys(generos).map((genero,i)=> {
-                                            return (<Genre key={genero+i} genero={genero}/>) 
+										{Object.keys(categorias).map((categoria,i)=> {
+                                            return (<Genre key={categoria+i} genero={categoria}/>) 
                                         })}
 
 									</div>

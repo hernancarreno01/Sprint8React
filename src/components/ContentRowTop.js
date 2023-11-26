@@ -1,81 +1,87 @@
 import React from 'react';
-import imagenFondo from '../assets/images/mandalorian.png'
-import Cards from './Cards'
+import imagenFondo from '../assets/images/mandalorian.png';
+import Cards from './Cards';
 import CategoriasInDb from './CategoriasInDb';
 import { Link } from 'react-router-dom';
 
+function ContentRowTop({ productosInfo }) {
+    console.log("---->" + productosInfo);
+    if (productosInfo.count > 0) {
 
+		const productosEnOferta = productosInfo.products.filter(producto => producto.category === 7);
 
+        let productosInDB = {
+            titulo: 'Productos en DB',
+            color: 'primary',
+            cantidad: productosInfo.products.length,
+            icono: 'fa-clipboard-list'
+        };
 
+        let totalProductos = {
+            titulo: ' Productos Disponibles',
+            color: 'success',
+            cantidad: '',
+            icono: 'fa-award'
+        };
 
-function ContentRowTop({productosInfo}){
-	console.log(productosInfo);
-	if (productosInfo.count > 0) {
+        let productosOferta = {
+            titulo: 'Productos en Oferta',
+            color: 'warning',
+            cantidad: productosEnOferta.length,
+            icono: 'fa-user-check'
+        };
 
-		let productosInDB = {
-			titulo: 'Productos en DB',
-			color: 'primary', 
-			cantidad: productosInfo.products.length,
-			icono: 'fa-clipboard-list'
-		}
-		let totalProductos = {
-			titulo:' Productos Disponibles', 
-			color:'success', 
-			cantidad: '',
-			icono:'fa-award'
-		}
-		let productosOferta = {
-			titulo:'Productos en Oferta' ,
-			color:'warning',
-			cantidad:'',
-			icono:'fa-user-check'
-		}
-		let cartProps = [productosInDB, totalProductos, productosOferta];
-    return(
-        <React.Fragment>
-				{/*<!-- Content Row Top -->*/}
-				<div className="container-fluid">
-					<div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-						<h1 className="h3 mb-0 text-gray-800">EcoEquip Dashboard</h1>
-					</div>
-				
-					{/*<!-- Content Row Movies-->*/}
-					<div className="row">
-						<Cards datos = {cartProps}/>
-						
+        let cartProps = [productosInDB, totalProductos, productosOferta];
 
-						
-					</div>
-					{/*<!-- End movies in Data Base -->*/}
-					
-	
-					{/*<!-- Content Row Last Movie in Data Base -->*/}
-					<div className="row">
-						{/*<!-- Last Movie in DB -->*/}
-						<div className="col-lg-6 mb-4">
-							<div className="card shadow mb-4">
-								<div className="card-header py-3">
-									<h5 className="m-0 font-weight-bold text-gray-800">Ultimo producto en DB</h5>
-								</div>
-								<div className="card-body">
-									<div className="text-center">
-										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={imagenFondo} alt=" Star Wars - Mandalorian "/>
-									</div>
-								<p>{productosInfo.products[productosInfo.products.length - 1].name}</p>
-								<a className="btn btn-danger" href={`${productosInfo.products.detail}`}>Ver detalle de producto</a>
-								</div>
-							</div>
-						</div>
-						{/*<!-- End content row last movie in Data Base -->*/}
+        return (
+            <React.Fragment>
+                {/*<!-- Content Row Top -->*/}
+                <div className="container-fluid">
+                    <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
+                        <h1 className="h3 mb-0 text-gray-800">EcoEquip Dashboard</h1>
+                    </div>
 
-						{/*<!-- Genres in DB -->*/}
-						<CategoriasInDb categorias= {productosInfo.countByCategory}/>
-					</div>
-				</div>
-				{/*<!--End Content Row Top-->*/}
+                    {/*<!-- Content Row Movies-->*/}
+                    <div className="row">
+                        <Cards datos={cartProps} />
+                    </div>
 
-        </React.Fragment>
-    )}
+                    {/*<!-- End movies in Data Base -->*/}
 
+                    {/*<!-- Content Row Last Movie in Data Base -->*/}
+                    <div className="row">
+                        {/*<!-- Last Movie in DB -->*/}
+                        <div className="col-lg-6 mb-4">
+                            <div className="card shadow mb-4">
+                                <div className="card-header py-3">
+                                    <h5 className="m-0 font-weight-bold text-gray-800">Ultimo producto en DB</h5>
+                                </div>
+                                <div className="card-body">
+                                    <div className="text-center">
+                                        <img
+                                            className="img-fluid px-3 px-sm-4 mt-3 mb-4"
+                                            style={{ width: 40 + 'rem' }}
+                                            src={imagenFondo}
+                                            alt=" Star Wars - Mandalorian "
+                                        />
+                                    </div>
+                                    <p>{productosInfo.products[productosInfo.products.length - 1].name}</p>
+                                    <a className="btn btn-danger" href={`${productosInfo.products.detail}`}>
+                                        Ver detalle de producto
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {/*<!-- End content row last movie in Data Base -->*/}
+
+                        {/*<!-- Genres in DB -->*/}
+                        <CategoriasInDb categorias={productosInfo.countByCategory} />
+                    </div>
+                </div>
+                {/*<!--End Content Row Top-->*/}
+            </React.Fragment>
+        );
+    }
 }
+
 export default ContentRowTop;

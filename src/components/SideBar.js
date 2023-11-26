@@ -13,7 +13,7 @@ function SideBar(){
         productos: [],
     })
     async function fetchApi(){
-        let respuesta = await fetch("/api/product")
+        let respuesta = await fetch("/api/products")
         let data = await respuesta.json()
         setproductosInfo(data)
     }
@@ -54,15 +54,15 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/contentRowTop">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
+                        <span>Resumen de productos</span>
                     </Link>
                 </li>
 
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to ="/genresInDB">
+                    <Link className="nav-link" to ="/categoriasInDB">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Categorias</span></Link>
                 </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
@@ -78,7 +78,8 @@ function SideBar(){
             <Switch>
                 <Route path="/" exact={true} ><ContentWrapper productosInfo = {productosInfo}></ContentWrapper></Route>
                 <Route path="/contentRowTop" exact={true} ><ContentRowTop productosInfo = {productosInfo}/></Route>
-                <Route path="/categoriasInDB" exact={true} ><CategoriasInDb categorias= {productosInfo.countByCategory}/></Route>
+                <Route path="/categoriasInDB" exact={true} ><CategoriasInDb categorias={productosInfo.countByCategory} /></Route>
+
             </Switch>
             {/*<!-- End of Sidebar -->*/}
             

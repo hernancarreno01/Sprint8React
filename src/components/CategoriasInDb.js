@@ -1,5 +1,31 @@
 import React,{Component} from 'react'
 import Genre from './Genre' 
+import { useHistory } from 'react-router-dom';
+
+/*export default function CategoriasInDb({ categorias }) {
+
+  const history = useHistory();
+
+  function handleCategoryClick(catId) {
+    history.push(`/products/${catId}`);
+  }
+
+  return (
+    <div>
+      {Object.keys(categorias).map(cat => (
+        <button 
+          key={cat}
+          onClick={() => handleCategoryClick(cat)}
+        >
+          {cat}
+        </button>
+      ))}
+	  </div>
+	)
+}*/
+
+  
+
 function GenresInDb ({categorias}){
 console.log(categorias)
 if (typeof categorias == "object"){

@@ -5,7 +5,7 @@ import CategoriasInDb from './CategoriasInDb';
 import { Link } from 'react-router-dom';
 
 function ContentRowTop({ productosInfo }) {
-    console.log("---->" + productosInfo);
+
     if (productosInfo.count > 0) {
 
 		const productosEnOferta = productosInfo.products.filter(producto => producto.category === 7);
@@ -17,21 +17,21 @@ function ContentRowTop({ productosInfo }) {
             icono: 'fa-clipboard-list'
         };
 
-        let totalProductos = {
-            titulo: ' Productos Disponibles',
+        let totalColeccionables = {
+            titulo: ' Productos Coleccionables',
             color: 'success',
             cantidad: '',
-            icono: 'fa-award'
+            icono: 'fa-box'
         };
 
         let productosOferta = {
             titulo: 'Productos en Oferta',
             color: 'warning',
-            cantidad: productosEnOferta.length,
-            icono: 'fa-user-check'
+            cantidad: productosInfo.countByCategory.Kids,
+            icono: 'fa-arrow-circle-up'
         };
 
-        let cartProps = [productosInDB, totalProductos, productosOferta];
+        let cartProps = [productosInDB, totalColeccionables, productosOferta];
 
         return (
             <React.Fragment>

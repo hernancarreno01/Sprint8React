@@ -2,29 +2,35 @@ import React from 'react';
 import imagenFondo from '../assets/images/mandalorian.png'
 import Cards from './Cards'
 import CategoriasInDb from './CategoriasInDb';
+import { Link } from 'react-router-dom';
 
-let productosInDB = {
-    titulo: 'Productos en DB',
-    color: 'primary', 
-    cantidad: 21,
-    icono: 'fa-clipboard-list'
-}
-let totalProductos = {
-    titulo:' Productos Disponibles', 
-    color:'success', 
-    cantidad: '79',
-    icono:'fa-award'
-}
-let productosOferta = {
-    titulo:'Productos en Oferta' ,
-    color:'warning',
-    cantidad:'49',
-    icono:'fa-user-check'
-}
-let cartProps = [productosInDB, totalProductos, productosOferta];
+
+
+
+
 function ContentRowTop({productosInfo}){
 	console.log(productosInfo);
-	if (productosInfo.count > 0 ){
+	if (productosInfo.count > 0) {
+
+		let productosInDB = {
+			titulo: 'Productos en DB',
+			color: 'primary', 
+			cantidad: productosInfo.products.length,
+			icono: 'fa-clipboard-list'
+		}
+		let totalProductos = {
+			titulo:' Productos Disponibles', 
+			color:'success', 
+			cantidad: '',
+			icono:'fa-award'
+		}
+		let productosOferta = {
+			titulo:'Productos en Oferta' ,
+			color:'warning',
+			cantidad:'',
+			icono:'fa-user-check'
+		}
+		let cartProps = [productosInDB, totalProductos, productosOferta];
     return(
         <React.Fragment>
 				{/*<!-- Content Row Top -->*/}
@@ -55,8 +61,8 @@ function ContentRowTop({productosInfo}){
 									<div className="text-center">
 										<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={imagenFondo} alt=" Star Wars - Mandalorian "/>
 									</div>
-									<p>{productosInfo.products[productosInfo.products.length -1].detail}</p>
-									<a className="btn btn-danger" target="_blank" rel="nofollow" href="/">Ver detalle de producto</a>
+								<p>{productosInfo.products[productosInfo.products.length - 1].name}</p>
+								<a className="btn btn-danger" href={`${productosInfo.products.detail}`}>Ver detalle de producto</a>
 								</div>
 							</div>
 						</div>

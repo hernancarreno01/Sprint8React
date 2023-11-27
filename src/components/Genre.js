@@ -1,4 +1,5 @@
 import React from 'react'
+
 function Genre({genero}) {
     
     return (
@@ -7,6 +8,8 @@ function Genre({genero}) {
             <div className="card bg-dark text-white shadow">
                 <div className="card-body">
                     {genero}
+                    <p class="subtitulo">Cantidad en stock: {genero}</p>
+                    
                 </div>
             </div>
         </div>

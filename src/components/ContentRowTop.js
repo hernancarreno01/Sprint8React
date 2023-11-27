@@ -17,21 +17,21 @@ function ContentRowTop({ productosInfo }) {
             icono: 'fa-clipboard-list'
         };
 
-        let totalColeccionables = {
+        let totalColeccionable = {
             titulo: ' Productos Coleccionables',
             color: 'success',
-            cantidad: '',
+            cantidad: productosInfo.countByCategory.Coleccionable,
             icono: 'fa-box'
         };
 
         let productosOferta = {
             titulo: 'Productos en Oferta',
             color: 'warning',
-            cantidad: productosInfo.countByCategory.Kids,
+            cantidad: productosInfo.countByCategory.Ofertas,
             icono: 'fa-arrow-circle-up'
         };
 
-        let cartProps = [productosInDB, totalColeccionables, productosOferta];
+        let cartProps = [productosInDB, totalColeccionable, productosOferta];
 
         return (
             <React.Fragment>

@@ -11,6 +11,7 @@ function Cards(props) {
                             <div className={`text-xs font-weight-bold text-${dato.color} text-uppercase mb-1`}>{dato.titulo}
                             </div>
                             <div className="h5 mb-0 font-weight-bold text-gray-800">{dato.cantidad}</div>
+                            <div className="h6 mb-0 font-weight-bold text-gray-800">{dato.nombre}</div>
                         </div>
                         <div className="col-auto">
                             <i className={`fas ${dato.icono} fa-2x text-gray-300`}></i>

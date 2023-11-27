@@ -21,7 +21,7 @@ function SideBar(){
        fetchApi()
 
     },[])
-    console.log(productosInfo)
+
     return(
         <React.Fragment>
             {/*<!-- Sidebar -->*/}

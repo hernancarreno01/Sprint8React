@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-console.log("productos lista");
+
 export default function Products({ productos }) {
 
   const { catId } = useParams();

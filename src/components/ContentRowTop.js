@@ -9,29 +9,31 @@ function ContentRowTop({ productosInfo }) {
     if (productosInfo.count > 0) {
 
 		const productosEnOferta = productosInfo.products.filter(producto => producto.category === 7);
+        let productoMinStock = productosInfo.products.reduce((min, p) => p.stock < min.stock ? p : min, productosInfo.products[0]);
 
         let productosInDB = {
             titulo: 'Productos en DB',
             color: 'primary',
             cantidad: productosInfo.products.length,
-            icono: 'fa-clipboard-list'
+            icono: 'fa-boxes'
         };
 
-        let totalColeccionable = {
-            titulo: ' Productos Coleccionables',
-            color: 'success',
-            cantidad: productosInfo.countByCategory.Coleccionable,
-            icono: 'fa-box'
-        };
+        let productoMinStockObj = {
+            titulo: 'Prod. con menor stock',
+            color: 'warning', 
+            nombre: productoMinStock.name,
+            stock: productoMinStock.stock,
+            icono: 'fa-bolt'
+          };
 
         let productosOferta = {
             titulo: 'Productos en Oferta',
             color: 'warning',
             cantidad: productosInfo.countByCategory.Ofertas,
-            icono: 'fa-arrow-circle-up'
+            icono: 'fa-heart'
         };
 
-        let cartProps = [productosInDB, totalColeccionable, productosOferta];
+        let cartProps = [productosInDB, productoMinStockObj, productosOferta];
 
         return (
             <React.Fragment>

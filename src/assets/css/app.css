@@ -1097,6 +1097,12 @@ pre code {
     flex: 0 0 100%;
     max-width: 100%;
   }
+  .col-lg-13 {
+    margin: 20px;
+    flex: 0 0 100%;
+    max-width: 70%;
+    
+  }
   .order-lg-first {
     order: -1;
   }
@@ -6769,6 +6775,7 @@ margin-top: 20px;
 .mx-1 {
   margin-right: 0.25rem !important;
 }
+
 .mb-1,
 .my-1 {
   margin-bottom: 0.25rem !important;
@@ -6776,6 +6783,9 @@ margin-top: 20px;
 .ml-1,
 .mx-1 {
   margin-left: 0.25rem !important;
+}
+.col-lg-12{
+  margin: 20px
 }
 .m-2 {
   margin: 0.5rem !important;

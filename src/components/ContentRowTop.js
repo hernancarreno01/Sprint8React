@@ -72,6 +72,7 @@ function ContentRowTop({ productosInfo }) {
                                         Ver detalle de producto
                                     </a>
                                 </div>
+                                
                             </div>
                         </div>
                         {/*<!-- End content row last movie in Data Base -->*/}
@@ -80,10 +81,12 @@ function ContentRowTop({ productosInfo }) {
                         <CategoriasInDb categorias={productosInfo.countByCategory} />
                     </div>
                 </div>
+                
                 {/*<!--End Content Row Top-->*/}
             </React.Fragment>
         );
-    }
-}
+        
+    }  
+} 
 
 export default ContentRowTop;

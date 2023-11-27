@@ -4,6 +4,7 @@ import { Link, Route,Switch } from 'react-router-dom';
 import ContentWrapper from './ContentWrapper';
 import ContentRowTop from './ContentRowTop';
 import CategoriasInDb from './CategoriasInDb';
+import ListadoProductos from './listadoProductos';
 
 
 function SideBar(){
@@ -52,7 +53,7 @@ function SideBar(){
 
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link collapsed" to="/contentRowTop">
+                    <Link className="nav-link collapsed" to="/listadoProductos">
                         <i className="fas fa-fw fa-folder"></i>
                         <span>Resumen de productos</span>
                     </Link>
@@ -65,19 +66,12 @@ function SideBar(){
                         <span>Categorias</span></Link>
                 </li>
 
-                {/*<!-- Nav Item - Tables -->*/}
-                <li className="nav-item">
-                    <a className="nav-link" href="/">
-                        <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></a>
-                </li>
-
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
             <Switch>
                 <Route path="/" exact={true} ><ContentWrapper productosInfo = {productosInfo}></ContentWrapper></Route>
-                <Route path="/contentRowTop" exact={true} ><ContentRowTop productosInfo = {productosInfo}/></Route>
+                <Route path="/listadoProductos" exact={true} ><ListadoProductos productosInfo = {productosInfo}/></Route>
                 <Route path="/categoriasInDB" exact={true} ><CategoriasInDb categorias={productosInfo.countByCategory} /></Route>
 
             </Switch>

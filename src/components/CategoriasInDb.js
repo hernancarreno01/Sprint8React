@@ -38,7 +38,7 @@ function GenresInDb({ categorias }) {
           <div className="card-body">
             <div className="row">
               {Object.keys(categorias).map((categoria, i) => {
-                return <Genre key={categoria + i} genero={categoria} />;
+                return <Genre categorias={categorias} key={categoria + i} genero={categoria} />;
               })}
             </div>
           </div>

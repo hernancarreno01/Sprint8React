@@ -3,7 +3,7 @@ import TopBar from './TopBar';
 import ContentRowTop from './ContentRowTop';
 import Footer from './Footer';
 
-function ContentWrapper({productosInfo}){
+function ContentWrapper({productosInfo, usuariosInfo}){
     return (
         <React.Fragment>
             {/*<!-- Content Wrapper -->*/}
@@ -11,7 +11,7 @@ function ContentWrapper({productosInfo}){
                 {/*<!-- Main Content -->*/}
                 <div id="content">
                     <TopBar />
-                    <ContentRowTop productosInfo = {productosInfo} />
+                    <ContentRowTop productosInfo={productosInfo} usuariosInfo={usuariosInfo} />
                     <Footer />
                 </div>
             </div>    

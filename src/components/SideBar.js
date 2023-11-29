@@ -10,7 +10,7 @@ function SideBar() {
   const [productosInfo, setproductosInfo] = useState({
     count: 0,
     countByCategory: {},
-    productos: [],
+    products: [],
   });
   async function fetchApi() {
     let respuesta = await fetch("/api/products");

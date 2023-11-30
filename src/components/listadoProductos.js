@@ -1,18 +1,18 @@
 import React from "react";
-import imagenFondo from "../assets/images/mandalorian.png";
-import Cards from "./Cards";
-import CategoriasInDb from "./CategoriasInDb";
-import { Link } from "react-router-dom";
+// import imagenFondo from "../assets/images/mandalorian.png";
+// import Cards from "./Cards";
+// import CategoriasInDb from "./CategoriasInDb";
+// import { Link } from "react-router-dom";
 
 function ListadoProductos({ productosInfo }) {
     if (productosInfo.count > 0) {
-        const productosEnOferta = productosInfo.products.filter(
-            (producto) => producto.category === 7
-        );
-        let productoMinStock = productosInfo.products.reduce(
-            (min, p) => (p.stock < min.stock ? p : min),
-            productosInfo.products[0]
-        );
+        // const productosEnOferta = productosInfo.products.filter(
+        //  (producto) => producto.category === 7
+        //  );
+        //   let productoMinStock = productosInfo.products.reduce(
+        //     (min, p) => (p.stock < min.stock ? p : min),
+        //   productosInfo.products[0]
+        // );
         return (
             <React.Fragment>
                 {/*<!-- Content Row Top -->*/}
@@ -36,6 +36,7 @@ function ListadoProductos({ productosInfo }) {
                                         <br />
                                         <img
                                             src={producto.imagen_url}
+                                            alt="Producto"
                                             style={{ maxWidth: "100px" }}
                                         />
                                         <br />

@@ -4,36 +4,58 @@ import Cards from './Cards';
 import CategoriasInDb from './CategoriasInDb';
 import { Link } from 'react-router-dom';
 
-function ContentRowTop({ productosInfo }) {
+function ContentRowTop({ productosInfo, userInfo }) {
 
     if (productosInfo.count > 0) {
 
-		const productosEnOferta = productosInfo.products.filter(producto => producto.category === 7);
+        const productosEnOferta = productosInfo.products.filter(producto => producto.category === 7);
         let productoMinStock = productosInfo.products.reduce((min, p) => p.stock < min.stock ? p : min, productosInfo.products[0]);
+        let lastUser = userInfo.users[userInfo.users.length - 1].name;
 
         let productosInDB = {
             titulo: 'Productos en DB',
-            color: 'primary',
+            color: 'warning',
             cantidad: productosInfo.products.length,
             icono: 'fa-boxes'
         };
 
         let productoMinStockObj = {
             titulo: 'Prod. con menor stock',
-            color: 'warning', 
+            color: 'primary',
             nombre: productoMinStock.name,
             stock: productoMinStock.stock,
             icono: 'fa-bolt'
-          };
+        };
 
         let productosOferta = {
             titulo: 'Productos en Oferta',
-            color: 'warning',
+            color: 'secondary',
             cantidad: productosInfo.countByCategory.Ofertas,
             icono: 'fa-heart'
         };
 
-        let cartProps = [productosInDB, productoMinStockObj, productosOferta];
+        let TotalUsuarios = {
+            titulo: 'Usuarios Registrados',
+            color: "info",
+            cantidad: userInfo.count,
+            icono: 'fa-users'
+        };
+
+        let ultimoUsuario = {
+            titulo: 'Ultimo Usuario Registrado',
+            color: "info",
+            cantidad: lastUser,
+            icono: 'fa-user'
+        };
+
+        let randomAvatar = {
+            titulo: 'randomAvatar',
+            color: "info",
+            cantidad: userInfo.count,
+            icono: 'fa-users'
+        };
+
+        let cartProps = [productosInDB, productoMinStockObj, productosOferta, TotalUsuarios, ultimoUsuario];
 
         return (
             <React.Fragment>
@@ -72,7 +94,7 @@ function ContentRowTop({ productosInfo }) {
                                         Ver detalle de producto
                                     </a>
                                 </div>
-                                
+
                             </div>
                         </div>
                         {/*<!-- End content row last movie in Data Base -->*/}
@@ -81,12 +103,13 @@ function ContentRowTop({ productosInfo }) {
                         <CategoriasInDb categorias={productosInfo.countByCategory} />
                     </div>
                 </div>
-                
+
                 {/*<!--End Content Row Top-->*/}
             </React.Fragment>
         );
-        
-    }  
-} 
+
+    }
+    console.log(userInfo);
+}
 
 export default ContentRowTop;

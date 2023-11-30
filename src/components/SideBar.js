@@ -5,6 +5,7 @@ import ContentWrapper from "./ContentWrapper";
 import ContentRowTop from "./ContentRowTop";
 import CategoriasInDb from "./CategoriasInDb";
 import ListadoProductos from "./listadoProductos";
+import ListadoUsuarios from "./listadoUsuarios";
 
 function SideBar() {
   const [productosInfo, setproductosInfo] = useState({
@@ -18,14 +19,14 @@ function SideBar() {
     setproductosInfo(data);
     console.log(data);
   }
-  const [usuariosInfo, setusuariosInfo] = useState({
+  const [userInfo, setUserInfo] = useState({
     count: 0,
     usuarios: [],
   });
   async function fetchApi2() {
     let respuesta = await fetch("/api/users");
     let data = await respuesta.json();
-    setusuariosInfo(data);
+    setUserInfo(data);
     console.log(data);
   }
   useEffect(() => {
@@ -88,13 +89,19 @@ function SideBar() {
       </ul>
       <Switch>
         <Route path="/" exact={true}>
-          <ContentWrapper productosInfo={productosInfo} usuariosInfo={usuariosInfo} userInfo={usuariosInfo}></ContentWrapper>
+          <ContentWrapper
+            productosInfo={productosInfo}
+            userInfo={userInfo}
+          ></ContentWrapper>
         </Route>
         <Route path="/listadoProductos" exact={true}>
-          <ListadoProductos productosInfo={productosInfo} userInfo={usuariosInfo} />
+          <ListadoProductos productosInfo={productosInfo} />
         </Route>
         <Route path="/categoriasInDB" exact={true}>
-          <CategoriasInDb categorias={productosInfo.countByCategory} userInfo={usuariosInfo} />
+          <CategoriasInDb categorias={productosInfo.countByCategory} />
+        </Route>
+        <Route path="/listadoUsuarios" exact={true}>
+          <ListadoUsuarios userInfo={userInfo} />
         </Route>
       </Switch>
       {/*<!-- End of Sidebar -->*/}

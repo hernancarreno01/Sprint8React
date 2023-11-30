@@ -16,16 +16,17 @@ function ListadoProductos({ productosInfo }) {
         return (
             <React.Fragment>
                 {/*<!-- Content Row Top -->*/}
-
+    <section className="tabla">
                 <div className="col-lg-13 mb-9">
                     <div className="card shadow mb-4 margin-top 40px">
                         <div className="card-header py-3 margin-top 40px">
                             <h5 className="m-0">Lista de Productos</h5>
                         </div>
-                        <div className="card-body">
+                        <div className="tabla">
                             <ul>
                                 {productosInfo.products.map((producto) => (
-                                    <li key={producto.id}>
+                                    <li key={producto.id} className="tabla2">
+
                                         <strong>ID:</strong> {producto.id}
                                         <br />
                                         <strong>Nombre:</strong> {producto.name}
@@ -39,15 +40,13 @@ function ListadoProductos({ productosInfo }) {
                                             alt="Producto"
                                             style={{ maxWidth: "100px" }}
                                         />
-                                        <br />
-                                        { }
-                                        <br />
                                     </li>
                                 ))}
                             </ul>
                         </div>
                     </div>
-                </div>
+                    </div>
+    </section>
                 {/*<!--End Content Row Top-->*/}
             </React.Fragment>
         );

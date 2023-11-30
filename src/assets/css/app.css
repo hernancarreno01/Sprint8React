@@ -97,6 +97,18 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+.tabla2{
+  border: #0e7e55 2px solid;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-top: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  font-size: 13px;
+}
+
+
 abbr[data-original-title],
 abbr[title] {
   text-decoration: underline;
@@ -1334,9 +1346,10 @@ pre code {
 }
 .table td,
 .table th {
-  padding: 0.75rem;
-  vertical-align: top;
+  padding: 2px;
+  vertical-align: middle;
   border-top: 1px solid #e3e6f0;
+  text-align: center;
 }
 .table thead th {
   vertical-align: bottom;
@@ -4012,9 +4025,22 @@ input[type="submit"].btn-block {
   border-bottom-right-radius: 0.35rem;
   border-bottom-left-radius: 0.35rem;
 }
+.imgAvatar2 {
+  max-width: 100px; /* Ajusta el ancho según tus necesidades */
+  max-height: 200px; /* Ajusta la altura según tus necesidades */
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+  object-fit: cover; /* Ajusta el comportamiento del tamaño de la imagen */
+  display: block; /* Elimina cualquier espacio adicional alrededor de la imagen */
+  margin: auto; /* Centra horizontalmente */
+}
+td .avatarTD{
+  text-align: center; /* Centra horizontalmente dentro del td */
+  vertical-align: middle; /* Centra verticalmente dentro del td */
+}
 .card-body {
   flex: 1 1 auto;
   padding: 1.25rem;
+  font-size: 13px;
 }
 .card-title {
   margin-bottom: 0.75rem;
@@ -8718,9 +8744,10 @@ a.text-dark:hover {
   .table {
     border-collapse: collapse !important;
   }
-  .table td,
-  .table th {
-    background-color: #fff !important;
+  .table th, .table td {
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
   }
   .table-bordered td,
   .table-bordered th {

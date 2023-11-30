@@ -28,7 +28,7 @@ function ListadoUsuarios({userInfo}) {
                   <td>{user.name}</td>  
                   <td>{user.userName}</td>  
                   <td>{user.email}</td>  
-                  <td> <img src={user.imagen_url} alt="Avatar" style={{ maxWidth: "60px"}}/>   </td>             
+                  <td className="avatarTD"> <img className="imgAvatar2" src={user.imagen_url} alt="Avatar" style={{ maxWidth: "30px"}}/>   </td>             
                 </tr>
               ))}
             </tbody>

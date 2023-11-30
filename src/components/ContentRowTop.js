@@ -4,9 +4,10 @@ import Cards from './Cards';
 import CategoriasInDb from './CategoriasInDb';
 import { Link } from 'react-router-dom';
 
-function ContentRowTop({ productosInfo, usuariosInfo }) {
-console.log(productosInfo);
-    if (productosInfo && usuariosInfo) {
+function ContentRowTop({ productosInfo }) {
+
+    if (productosInfo.count > 0) {
+
 		const productosEnOferta = productosInfo.products.filter(producto => producto.category === 7);
         let productoMinStock = productosInfo.products.reduce((min, p) => p.stock < min.stock ? p : min, productosInfo.products[0]);
 
@@ -31,14 +32,8 @@ console.log(productosInfo);
             cantidad: productosInfo.countByCategory.Ofertas,
             icono: 'fa-heart'
         };
-        let usuariosTotales = {
-          titulo: 'Cantidad de Usuarios',
-          color: 'primary',
-          cantidad: 2,
-          icono: 'fa-users'
-      };
 
-        let cartProps = [productosInDB, productoMinStockObj, productosOferta, usuariosTotales];
+        let cartProps = [productosInDB, productoMinStockObj, productosOferta];
 
         return (
             <React.Fragment>

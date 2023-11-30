@@ -10,7 +10,6 @@ function ListadoProductos({ productosInfo }) {
 
 		const productosEnOferta = productosInfo.products.filter(producto => producto.category === 7);
         let productoMinStock = productosInfo.products.reduce((min, p) => p.stock < min.stock ? p : min, productosInfo.products[0]);
-        console.log(productosInfo);
         return (
             <React.Fragment>
                                 {/*<!-- Content Row Top -->*/}
@@ -28,7 +27,7 @@ function ListadoProductos({ productosInfo }) {
                         <strong>Nombre:</strong> {producto.name}<br />
                         <strong>Descripción:</strong> {producto.description}<br />
                         <strong>Precio: $</strong> {producto.price}<br />
-                        <strong>Imagen:</strong> <img src={producto.imagen_url} style={{ maxWidth: '100px' }} /><br />
+                        <strong>Imagen:</strong> <img src={producto.imagen_01} style={{ maxWidth: '100px' }} /><br />
                         {}
                         <br />
                     </li>
